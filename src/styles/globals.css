@@ -8,26 +8,296 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.main-page {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.bg-page {
+  background-image: url('../common/assets/images/webg1.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-attachment: fixed;
+  background-size: auto 100%;
+}
+
+.cloud-1 {
+  background-image: url('../common/assets/images/webg2.png');
+  background-repeat: no-repeat;
+  width: 200%;
+  height: 100%;
+  background-position: left top;
+  position: absolute;
+  background-size: auto 70%;
+  left: -0.273079%;
+  top: 10.1194%;
+  animation: move 5s infinite;
+}
+
+.cloud-2 {
+  background-image: url('../common/assets/images/webg2.png');
+  background-repeat: no-repeat;
+  width: 200%;
+  height: 100%;
+  background-position: left top;
+  position: absolute;
+  background-size: auto 70%;
+  left: -0.273079%;
+  top: 10.1194%;
+  animation: move 11s infinite;
+}
+
+.cloud-2 {
+  background-image: url('../common/assets/images/webg3.png');
+  background-repeat: no-repeat;
+  width: 200%;
+  height: 100%;
+  background-position: left top;
+  position: absolute;
+  background-size: auto 100%;
+  left: 4.45543%;
+  top: -1.43359%;
+  animation: move 6s infinite;
+}
+
+.cloud-3 {
+  background-image: url('../common/assets/images/webg2.png');
+  background-repeat: no-repeat;
+  width: 200%;
+  height: 100%;
+  background-position: left top;
+  position: absolute;
+  background-size: auto 150%;
+  left: -53%;
+  top: 20%;
+  animation: move 8s infinite;
+}
+
+.bg-blur {
+  backdrop-filter: blur(1vh);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+
+@keyframes move {
+  0% {
+    transform: translatex(0);
+  }
+  50% {
+    transform: translatex(-40px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.scanlines {
+  overflow: hidden;
+  mix-blend-mode: difference;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.scanlines::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.05) 0.5%, transparent 1%);
+  animation: fudge 7s ease-in-out alternate infinite;
+}
+
+.logo-aptos {
+  background-image: url('../common/assets/images/Aptos_mark_WHT.svg');
+  opacity: 0.2;
+  background-repeat: no-repeat;
+  width: 10vh;
+  height: 10vh;
+  left: 5vh;
+  top: 5vh;
+  position: absolute;
+  background-size: contain;
+  background-position: 50% 50%;
+}
+
+.logo-name {
+  position: relative;
+  margin: 0;
+  top: 8vh;
+  left: 0.3vh;
+  color: white;
+  line-height: 8vh;
+  font-size: 1.5vh;
+}
+
+.count-down {
+  filter: drop-shadow(2px 4px 6px blue);
+  transform: scaleY(0.8);
+  position: absolute;
+  top: calc(22vh - 1rem - min(3rem, 6vw));
+  width: 100%;
+  line-height: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.logo {
+  background-image: url('../common/assets/images/karetalogo.png');
+  margin: 0;
+  margin-right: 10vw;
+  margin-left: 10vw;
+  background-repeat: no-repeat;
+  height: 30%;
+  max-height: 150px;
+  background-position: center;
+  background-size: contain;
+  width: 80vw;
+  color: black;
+  font-size: 5rem;
+  top: 30%;
+  position: absolute;
+}
+
+.social {
+  position: absolute;
+  top: 55%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-link {
+  display: inline-block;
+  height: 4rem;
+  text-decoration: none;
+  color: black;
+  transition: all 0.6s;
+}
+
+.nav-text {
+  line-height: 2rem;
+  padding: 1rem;
+  transform: scaleY(0.6);
+}
+
+a:hover {
+  text-decoration: overline;
+  transform: scale(1.2);
+}
+
+.roadmap-logo {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1100;
+  background: url('../common/assets/images/karetalogo.png');
+  width: 100%;
+  height: 20vh;
+  max-height: 100px;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.6s;
+}
+
+.phaseinfo {
+  width: 80%;
+  max-width: 1080px;
+  height: calc(90vh - (min(20vh, 100px) + 2rem));
+  margin: auto;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.phase {
+  opacity: 0;
+  background-color: rgba(240, 240, 245, 0.8);
+  border-radius: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(126deg, rgba(240, 255, 255, 0.7) 0%, rgba(170, 240, 255, 0.7) 100%);
+  animation: appear 0.7s ease-out forwards;
+}
+
+.phase:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.check:after {
+  font-family: 'Courier New', Courier, monospace;
+  animation: roll 0.5s ease infinite;
+  display: inline-block;
+  content: '✅';
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    color: blue;
+    transform: translateY(20px); /* Adjust the value to change the direction of animation */
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+    color: black;
+  }
+}
+
+@keyframes glint {
+  0% {
+    background-position: -100% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(5deg); /* Adjust the value to change the direction of animation */
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg); /* Adjust the value to change the direction of animation */
+  }
+}
+
+.phase-title {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(126deg, rgba(0, 0, 0, 1) 0%, rgb(0, 16, 197) 50%, rgba(0, 0, 0, 1) 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glint 2s infinite linear;
+}
+
+.text-shadow {
+  text-shadow:
+    3px 3px 20px #ff99cc,
+    -2px 1px 30px #ff99cc;
 }
